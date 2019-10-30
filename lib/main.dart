@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/other/animatedgridview.dart';
 import 'login.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
@@ -6,6 +7,7 @@ import 'progressbar.dart';
 import 'homepage.dart';
 import 'package:flutter/animation.dart';
 import 'other/flipcard.dart';
+import 'other/animatedgridview.dart';
 
 void main() => runApp(MyApp());
 
@@ -296,13 +298,28 @@ class _HomeScreen extends State<HomeScreen>
                                         shadowColor: Colors.black,
                                         child: FlatButton.icon(onPressed: () => _signIn()
                                             .then((FirebaseUser user) => _neverSatisfy(user.displayName))
-                                            .catchError((e) => _neverSatisfied(),), label: Text("Sign in with Google", style: TextStyle(color: Colors.grey, fontSize: 15),),icon: Image.asset('./images/preview.jpeg', height: 30,width: 30, fit: BoxFit.fill,)),
-
+                                            .catchError((e) => _neverSatisfied(),), label: Text("Sign in with Google", style: TextStyle(color: Colors.grey, fontSize: 15),),icon: Image.asset('images/preview.jpeg', height: 30,width: 30, fit: BoxFit.fill,)),
                                       ),
                                     ),
                                   )
                                 ],
                               )),
+                          Row(
+                            children: <Widget>[
+                              SizedBox(
+                                height: 20,
+                                width: 20,
+                                child: FlatButton(
+                                  color: Colors.black,
+                                  onPressed: (){
+                                    Navigator.push(context, MaterialPageRoute(builder: (context) {
+                                      return AnimatedGridView();
+                                    }));
+                                  },
+                                ),
+                              ),
+                            ],
+                          ),
                         ],
                       ),
                     ],
