@@ -307,8 +307,8 @@ class _HomeScreen extends State<HomeScreen>
                           Row(
                             children: <Widget>[
                               SizedBox(
-                                height: 20,
-                                width: 20,
+                                height: 40,
+                                width: 40,
                                 child: FlatButton(
                                   color: Colors.black,
                                   onPressed: (){
