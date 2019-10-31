@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/other/animatedgridview.dart';
+import 'package:flutter_app/other/splashscreen.dart';
 import 'login.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
@@ -8,6 +9,7 @@ import 'homepage.dart';
 import 'package:flutter/animation.dart';
 import 'other/flipcard.dart';
 import 'other/animatedgridview.dart';
+import 'package:flutter_app/animation/fadedanimation.dart';
 
 void main() => runApp(MyApp());
 
@@ -104,7 +106,7 @@ class _HomeScreen extends State<HomeScreen>
     print(userDetails);
 
     Navigator.push(context, MaterialPageRoute(builder: (context) {
-      return HomePage(userDetails);
+      return SplashScreen(userDetails);
     }));
 
     //Route route = MySlide(builder: (context) => HomePage(userDetails));
@@ -306,9 +308,10 @@ class _HomeScreen extends State<HomeScreen>
                               )),
                           Row(
                             children: <Widget>[
-                              SizedBox(
+                              Container(
+                                padding: EdgeInsets.only(left: 10),
                                 height: 40,
-                                width: 40,
+                                width: 50,
                                 child: FlatButton(
                                   color: Colors.black,
                                   onPressed: (){
@@ -316,6 +319,21 @@ class _HomeScreen extends State<HomeScreen>
                                       return AnimatedGridView();
                                     }));
                                   },
+                                  child: Text("AG", style: TextStyle(color: Colors.white),),
+                                ),
+                              ),
+                              Container(
+                                padding: EdgeInsets.only(left: 10),
+                                height: 40,
+                                width: 50,
+                                child: FlatButton(
+                                  color: Colors.black,
+                                  onPressed: (){
+                                    Navigator.push(context, MaterialPageRoute(builder: (context) {
+                                      return AnimatedGridView();
+                                    }));
+                                  },
+                                  child: Text("N", style: TextStyle(color: Colors.white),),
                                 ),
                               ),
                             ],
